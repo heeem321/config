@@ -1,0 +1,16 @@
+-- ~/.config/nvim/init.lua
+require('heeem321.remap')
+require('heeem321.packer')
+require('heeem321.colors')
+require('heeem321.telescope')
+require('heeem321.treesitter')
+require('heeem321.lsp')
+
+-- Keybindings
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
+vim.keymap.set('n', '<C-p>', builtin.git_files, {})
+vim.keymap.set('n', '<leader>ps', function()
+    builtin.grep_string({ search = vim.fn.input("Grep > ") })
+end)
+
